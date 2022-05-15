@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 
 import HeaderMain from '../../components/HeaderMain';
@@ -7,27 +7,25 @@ import './index.css';
 import More from '../../assets/more.png';
 
 import api from '../../services/api';
+import { useQuery, useQueryClient } from 'react-query';
 
 function Home() {
-  const [games, setGames] = useState([]);
+  const { data: games, isFetching } = useQuery('games', async () => {
+    const response = await api.get('');
 
-  useEffect(() => {
-    api.get()
-      .then((response) => {
-        setGames(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
-  }, []);
+    return response.data;
+  });
+
+  const queryClient = useQueryClient();
 
   const deleteGame = (id) => {
-    try {
-      api.delete(`${id}`)
-      setGames(games.filter(game => game.id !== id));
-    } catch (error) {
-      console.log(error.message);
-    }
+    api.delete(`${id}`)
+      .then(() => {
+        queryClient.invalidateQueries(['games']);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -36,7 +34,8 @@ function Home() {
 
       <main>
         <div className='cards'>
-          {games.map((game, key) => {
+          {isFetching && <p>Carregando...</p>}
+          {games?.map((game, key) => {
             return (
               <div className='card' key={key}>
                 <header>
