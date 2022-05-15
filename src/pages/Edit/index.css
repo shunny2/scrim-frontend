@@ -1,0 +1,78 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-form {
+    padding: 30px 20px;
+    border: 3px solid white;
+    width: 500px;
+    height: 600px;
+    border-radius: 5px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.card-form h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: monospace;
+    font-size: 2rem;
+}
+
+.fields {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 1.2rem;
+    color: #D2DAF5;
+    font-family: Poppins;
+}
+
+input, textarea {
+    display: block;
+    padding: 0px 10px;
+    margin: 20px auto;
+    width: 80%;
+    height: 10%;
+}
+
+input {
+    height: 45px;
+}
+
+textarea {
+    height: 90px;
+    resize: none;
+    padding: 12px;
+}
+
+.btn-form button {
+    display: block;
+    padding: 2px 5px;
+    margin: 50px auto;
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-family: monospace;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-form button:hover {
+    background-color: #29EBAA;
+    color: black;
+}
+
+.error-message {
+    text-align: center;
+    color: #29EBAA;
+    font-weight: bold;
+}
