@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import GlobalStyle from './styles/global';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { QueryClientProvider } from 'react-query';
@@ -12,6 +12,7 @@ root.render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <App />
+        <GlobalStyle />
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
