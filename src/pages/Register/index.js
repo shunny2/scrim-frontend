@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 
 import api from '../../services/api';
 
-function Form() {
+function Register() {
     let navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -17,9 +17,9 @@ function Form() {
 
     const create = async (data) => {
         try {
-            const response = await api.post('', data);
+            const response = await api.post('game', data);
 
-            navigate('/');
+            navigate('/home');
 
             return response.data;
         } catch (error) {
@@ -74,7 +74,7 @@ function Form() {
     )
 }
 
-export default Form;
+export default Register;
 
 const validation = yup.object().shape({
     name: yup

@@ -14,7 +14,7 @@ function ViewMore() {
 
   useEffect(() => {
 
-    api.get(`${id}`)
+    api.get(`game/${id}`)
       .then((response) => {
         setGame(response.data);
       })

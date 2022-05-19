@@ -6,12 +6,14 @@ import HeaderMain from '../../components/HeaderMain';
 import './index.css';
 import More from '../../assets/more.png';
 
+import Loading from '../../assets/loading.gif';
+
 import api from '../../services/api';
 import { useQuery, useQueryClient } from 'react-query';
 
 function Home() {
   const { data: games, isFetching } = useQuery('games', async () => {
-    const response = await api.get('');
+    const response = await api.get('game');
 
     return response.data;
   });
@@ -19,7 +21,7 @@ function Home() {
   const queryClient = useQueryClient();
 
   const deleteGame = (id) => {
-    api.delete(`${id}`)
+    api.delete(`game/${id}`)
       .then(() => {
         queryClient.invalidateQueries(['games']);
       })
@@ -34,7 +36,13 @@ function Home() {
 
       <main>
         <div className='cards'>
-          {isFetching && <p>Carregando...</p>}
+          {
+            isFetching &&
+            <div className='loading'>
+              <img src={Loading} style={{ width: '30%' }} alt="loading" />
+            </div>
+          }
+
           {games?.map((game, key) => {
             return (
               <div className='card' key={key}>

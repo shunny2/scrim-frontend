@@ -32,7 +32,7 @@ main .cards .card {
     margin: 0 auto;
     padding: 30px 40px;
     width: 600px;
-    border: 3px solid white;
+    border: 3px solid #3DECB1;
     border-radius: 7px;
     margin-top: 40px;
 }
@@ -47,10 +47,11 @@ main .cards .card {
     font-family: Noto Sans;
     font-weight: 700;
     font-size: 1.7rem;
+    color: #3DECB1;
 }
 
 .line {
-    background-color: white;
+    background-color: #3DECB1;
     height: 2px;
 }
 

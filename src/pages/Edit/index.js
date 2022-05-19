@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 
 import api from '../../services/api';
 
-function FormEdit() {
+function Edit() {
     let navigate = useNavigate();
 
     const { id } = useParams();
@@ -19,7 +19,7 @@ function FormEdit() {
 
     useEffect(() => {
 
-        api.get(`${id}/edit`)
+        api.get(`game/${id}/edit`)
             .then((response) => {
                 reset(response.data);
             })
@@ -31,9 +31,9 @@ function FormEdit() {
 
     const update = async (data) => {
         try {
-            const response = await api.put(`${id}`, data);
+            const response = await api.put(`game/${id}`, data);
 
-            navigate('/');
+            navigate('/home');
 
             return response.data;
         } catch (error) {
@@ -88,7 +88,7 @@ function FormEdit() {
     )
 }
 
-export default FormEdit;
+export default Edit;
 
 const validation = yup.object().shape({
     name: yup
