@@ -11,11 +11,16 @@ function HeaderMain() {
                 <h1>Scrim</h1>
             </div>
 
-            <div className='btn-newForm'>
+            <div className='buttons'>
                 <Link to='/form'>
                     <button>Cadastrar Novo Jogo</button>
                 </Link>
-            </div> 
+            </div>
+            <div className='buttons'>
+                <Link to='/login'>
+                    <button>Sair</button>
+                </Link>
+            </div>
         </div>
     </header>
   )

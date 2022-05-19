@@ -18,18 +18,20 @@ header {
     cursor: pointer;
 }
 
-.btn-newForm button {
+.buttons button {
     font-size: 1.2rem;
     font-family: monospace;
     font-weight: 700;
-    background-color: #fff;
-    color: black;
+    background-color: rgba(255, 255, 255, 0);
+    color: #29EBAA;
     padding: 10px 20px;
+    border-color: #29EBAA;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.btn-newForm button:hover {
+.buttons button:hover {
     transition: 0.2s;
     background-color: #29EBAA;
+    color: white;
 }
