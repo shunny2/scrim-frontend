@@ -18,6 +18,9 @@ export const Content = styled.div`
     margin-bottom: 100px;
 `;
 
+export const Form = styled.form`
+`;
+
 export const H1 = styled.h1`
     margin-bottom: 40px;
     font-family: monospace;

@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Input from '../../components/Input';
@@ -9,28 +12,22 @@ import api from '../../services/api';
 
 const SignIn = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(validation)
+  });
 
   let navigate = useNavigate();
 
-  const login = async () => {
-    if (email !== '' && password !== '') {
-      try {
-        const response = await api.post('user', {
-          email: email,
-          password: password
-        });
+  const login = async (data) => {
+    console.log(data);
+    try {
+      const response = await api.post('user', data);
 
-        navigate('/home');
+      navigate('/home');
 
-        return response.data;
-      } catch (error) {
-        console.log(error.message);
-      }
-    } else {
-      setError('Email ou senha inválidos.');
+      return response.data;
+    } catch (error) {
+      console.log(error.message);
     }
   }
 
@@ -38,36 +35,47 @@ const SignIn = () => {
     <S.Container>
       <S.Content>
         <S.H1>Login</S.H1>
-        <S.ContentFields>
-          <Input
-            type="email"
-            name="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => [setEmail(e.target.value), setError('')]}
-          />
-          <S.labelError>{error}</S.labelError>
-        </S.ContentFields>
-        <S.ContentFields>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => [setPassword(e.target.value), setError('')]}
-          />
-          <S.labelError>{error}</S.labelError>
-        </S.ContentFields>
-        <Button Text="Entrar" onClick={login} Type="submit"/>
-        <S.LabelSignUp>
-          Não tem um conta?
-          <S.Strong>
-            <Link to="/signUp">&nbsp;Registre-se.</Link>
-          </S.Strong>
-        </S.LabelSignUp>
+        <S.Form onSubmit={handleSubmit(login)}>
+          <S.ContentFields>
+            <Input
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              ref={register('email')}
+            />
+            <S.labelError>{errors.email?.message}</S.labelError>
+          </S.ContentFields>
+          <S.ContentFields>
+            <Input
+              type="password"
+              name="password"
+              placeholder="Senha"
+              ref={register('password')}
+            />
+            <S.labelError>{errors.password?.message}</S.labelError>
+          </S.ContentFields>
+          <Button Text="Entrar" Type="submit" />
+          <S.LabelSignUp>
+            Não tem um conta?
+            <S.Strong>
+              <Link to="/signUp">&nbsp;Registre-se.</Link>
+            </S.Strong>
+          </S.LabelSignUp>
+        </S.Form>
       </S.Content>
     </S.Container>
   );
 }
 
 export default SignIn;
+
+const validation = yup.object().shape({
+  email: yup
+    .string()
+    .email('O campo e-mail é inválido.')
+    .required('O campo e-mail é obrigatório.'),
+  password: yup
+    .string()
+    .required('O campo senha é obrigatório.')
+    .min(8, 'O campo senha deve ter ao menos 8 caracteres.')
+});
