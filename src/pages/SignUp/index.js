@@ -69,10 +69,11 @@ const SignUp = () => {
             <S.ContentFields>
               <Input
                 type="password"
-                name="confirmPassword"
+                name="password_confirmation"
                 placeholder="Confirme sua senha"
-                ref={register('confirmPassword')}
+                ref={register('password_confirmation')}
               />
+              <S.labelError>{errors.password_confirmation?.message}</S.labelError>
             </S.ContentFields>
             <Button Text="Registrar-se" Type="submit" />
           </S.Form>
@@ -98,7 +99,7 @@ const validation = yup.object().shape({
     .string()
     .required('O campo senha é obrigatório.')
     .min(8, 'O campo senha deve ter ao menos 8 caracteres.'),
-  confirmPassword: yup
+  password_confirmation: yup
     .string()
-    .oneOf([yup.ref('password'), null], 'As senhas não são iguais.')
+    .oneOf([yup.ref('password'), null], 'Os campos de senha e confirme senha devem ser iguais.')
 });

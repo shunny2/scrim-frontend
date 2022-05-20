@@ -12,7 +12,7 @@ export const Content = styled.div`
     padding: 30px 20px;
     border: 3px solid #29EBAA;
     width: 500px;
-    height: 620px;
+    height: 640px;
     border-radius: 5px;
     margin-top: 100px;
     margin-bottom: 100px;
