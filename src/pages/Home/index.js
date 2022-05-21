@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import HeaderMain from '../../components/HeaderMain';
 
-import './index.css';
+import * as S from './styles';
 import More from '../../assets/more.png';
 
 import Loading from '../../assets/loading.gif';
@@ -34,48 +34,42 @@ function Home() {
     <>
       <HeaderMain />
 
-      <main>
-        <div className='cards'>
+      <S.Main>
+        <S.Content>
           {
             isFetching &&
-            <div className='loading'>
-              <img src={Loading} style={{ width: '30%' }} alt="loading" />
-            </div>
+            <S.Loading>
+              <S.Image src={Loading} style={{ width: '7%' }} alt="loading" />
+            </S.Loading>
           }
 
           {games?.map((game, key) => {
             return (
-              <div className='card' key={key}>
-                <header>
-                  <h2>{game.name}</h2>
-                  <h2>{verifyCost(game.cost)}</h2>
-                  <img src={More} alt='more' />
-                </header>
+              <S.Card key={key}>
+                <S.Header>
+                  <S.H2>{formatTitle(game.name)}</S.H2>
+                  <S.H2>{verifyCost(game.cost)}</S.H2>
+                  <S.Image src={More} alt='more' />
+                </S.Header>
 
-                <div className='line'></div>
+                <S.Line></S.Line>
 
-                <p>{formatText(game.description)}</p>
+                <S.Description>{formatDescription(game.description)}</S.Description>
 
-                <div className='btns'>
-                  <div className='btn-view'>
+                <S.Buttons>
                     <Link to={{ pathname: `/view-more/${game.id}` }}>
-                      <button>Vizualizar</button>
+                      <S.Button name="btn-view">Vizualizar</S.Button>
                     </Link>
-                  </div>
-                  <div className='btn-edit'>
                     <Link to={{ pathname: `/form/edit/${game.id}` }}>
-                      <button>Editar</button>
+                      <S.Button name="btn-edit">Editar</S.Button>
                     </Link>
-                  </div>
-                  <div className='btn-delete'>
-                    <button onClick={() => deleteGame(game.id)}>Excluir</button>
-                  </div>
-                </div>
-              </div>
+                    <S.Button name="btn-delete" onClick={() => deleteGame(game.id)}>Excluir</S.Button>
+                </S.Buttons>
+              </S.Card>
             )
           })}
-        </div>
-      </main>
+        </S.Content>
+      </S.Main>
     </>
   )
 }
@@ -83,4 +77,5 @@ function Home() {
 export default Home;
 
 const verifyCost = (cost) => (cost.includes('0.00') ? 'Gratuito.' : 'R$ ' + (Number(cost).toFixed(2)).replace('.', ','));
-const formatText = (text) => (text.includes('.') ? text.substring(0, text.indexOf('.')) + '...' : text.substring(0, 58) + '...');
+const formatTitle = (text) => (text.length > 20 ? text.substring(0, 20) + '...' : text);
+const formatDescription = (text) => (text.includes('.') ? text.substring(0, text.indexOf('.')) + '...' : text.substring(0, 44) + '...');

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import Header from '../../components/Header';
 
-import './index.css';
+import * as S from './styles';
 import More from '../../assets/more.png';
 
 import api from '../../services/api';
@@ -28,21 +28,21 @@ function ViewMore() {
     <>
       <Header />
 
-      <main>
-        <div className='cards'>
-          <div className='card'>
-            <header>
-              <h2>{game.name}</h2>
-              <h2>{verifyCost(game.cost)}</h2>
-              <img src={More} alt='more' />
-            </header>
+      <S.Main>
+        <S.Content>
+          <S.Card>
+            <S.Header>
+              <S.H2>{game.name}</S.H2>
+              <S.H2>{verifyCost(game.cost)}</S.H2>
+              <S.Image src={More} alt='more' />
+            </S.Header>
 
-            <div className='line'></div>
+            <S.Line></S.Line>
 
-            <p>{game.description}</p>
-          </div>
-        </div>
-      </main>
+            <S.Description>{game.description}</S.Description>
+          </S.Card>
+        </S.Content>
+      </S.Main>
     </>
   )
 }

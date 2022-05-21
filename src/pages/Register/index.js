@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import './index.css';
+import * as S from './styles';
 import Header from '../../components/Header';
+import Input from '../../components/Input';
+import TextArea from '../../components/TextArea';
+import Button from '../../components/Button';
 
 import api from '../../services/api';
 
@@ -30,46 +33,44 @@ function Register() {
     return (
         <>
             <Header />
-            <main>
-                <div className='card-form'>
-                    <h1>Scrim Formulário</h1>
-                    <form onSubmit={handleSubmit(create)}>
-                        <div className='fields'>
-                            <input
-                                type='text'
-                                name='name'
-                                placeholder='Nome'
-                                {...register('name')}
+
+            <S.Main>
+                <S.Content>
+                    <S.H1>Scrim Formulário</S.H1>
+                    <S.Form onSubmit={handleSubmit(create)}>
+                        <S.ContentFields>
+                            <Input
+                                type="text"
+                                name="name"
+                                placeholder="Nome"
+                                ref={register('name')}
                             />
-                            <p className='error-message'>{errors.name?.message}</p>
-                        </div>
-                        <div className='fields'>
-                            <input type='number'
-                                name='cost'
+                            <S.labelError>{errors.name?.message}</S.labelError>
+                        </S.ContentFields>
+                        <S.ContentFields>
+                            <Input
+                                type="number"
+                                name="cost"
                                 min="0" max="100000000000" step=".001"
-                                placeholder='Preço'
-                                {...register('cost')}
+                                placeholder="Preço"
+                                ref={register('cost')}
                             />
-                            <p className='error-message'>{errors.cost?.message}</p>
-                        </div>
-                        <div className='fields'>
-                            <textarea
-                                type='text'
-                                name='description'
+                            <S.labelError>{errors.cost?.message}</S.labelError>
+                        </S.ContentFields>
+                        <S.ContentFields>
+                            <TextArea
+                                type="text"
+                                name="description"
                                 rows={100}
-                                placeholder='Descrição'
-                                {...register('description')}
-                            ></textarea>
-                            <p className='error-message'>{errors.description?.message}</p>
-                        </div>
-                        <div className='btn-form'>
-                            <button>
-                                Cadastrar
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </main>
+                                placeholder="Descrição"
+                                ref={register('description')}
+                            ></TextArea>
+                            <S.labelError>{errors.description?.message}</S.labelError>
+                        </S.ContentFields>
+                        <Button Text="Cadastrar" Type="submit" />
+                    </S.Form>
+                </S.Content>
+            </S.Main>
         </>
     )
 }
