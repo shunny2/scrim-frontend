@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+import * as S from './styles';
 import Back from '../../assets/back-button.png';
 
 function Header(props) {
@@ -8,13 +9,13 @@ function Header(props) {
     let path = page ? '/login' : '/home';
     
     return (
-        <header>
-            <div className='container'>
+        <S.Header>
+            <S.Container>
                 <Link to={path}>
                     <img src={Back} alt='button back' style={{ width: 50 }} />
                 </Link>
-            </div>
-        </header>
+            </S.Container>
+        </S.Header>
     )
 }
 

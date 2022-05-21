@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../contexts/Auth/AuthContext';
 
-import './index.css';
+import * as S from './styles';
 
 function HeaderMain() {
     let navigate = useNavigate();
@@ -14,24 +14,24 @@ function HeaderMain() {
     }
 
     return (
-        <header>
-            <div className='container'>
-                <div className='logo'>
+        <S.Header>
+            <S.Container>
+                <S.Logo>
                     <h1>Scrim</h1>
-                </div>
+                </S.Logo>
 
-                <div className='buttons'>
+                <S.Buttons>
                     <Link to='/form'>
-                        <button>Cadastrar Novo Jogo</button>
+                        <S.Button>Cadastrar Novo Jogo</S.Button>
                     </Link>
-                </div>
-                <div className='buttons'>
+                </S.Buttons>
+                <S.Buttons>
                     <Link to=''>
-                        <button onClick={handleSignOut}>Sair</button>
+                        <S.Button onClick={handleSignOut}>Sair</S.Button>
                     </Link>
-                </div>
-            </div>
-        </header>
+                </S.Buttons>
+            </S.Container>
+        </S.Header>
     )
 }
 
