@@ -7,6 +7,9 @@ const Input = ((props, ref) => {
             type={props.type}
             name={props.name}
             placeholder={props.placeholder}
+            min={props.min}
+            max={props.max}
+            step={props.step}
             {...ref}
         />
     );
