@@ -23,12 +23,11 @@ const SignIn = () => {
     try {
       const isLogged = await auth.signIn(data.email, data.password);
 
-      if(isLogged)
+      if (isLogged)
         navigate('/home');
-      else
-        alert('Algo deu errado.');  
-  
+
     } catch (error) {
+      alert('E-mail ou senha inválido.');
       console.log(error.message);
     }
   }
