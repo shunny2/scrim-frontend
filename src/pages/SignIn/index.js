@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -8,9 +8,10 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import * as S from './styles';
 
-import api from '../../services/api';
+import { AuthContext } from '../../contexts/Auth/AuthContext';
 
 const SignIn = () => {
+  const auth = useContext(AuthContext);
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(validation)
@@ -19,13 +20,14 @@ const SignIn = () => {
   let navigate = useNavigate();
 
   const login = async (data) => {
-    console.log(data);
     try {
-      const response = await api.post('user', data);
+      const isLogged = await auth.signIn(data.email, data.password);
 
-      navigate('/home');
-
-      return response.data;
+      if(isLogged)
+        navigate('/home');
+      else
+        alert('Algo deu errado.');  
+  
     } catch (error) {
       console.log(error.message);
     }

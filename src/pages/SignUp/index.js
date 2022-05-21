@@ -21,7 +21,7 @@ const SignUp = () => {
 
   const userRegister = async (data) => {
     try {
-      const response = await api.post('user', data);
+      const response = await api.post('register', data);
 
       navigate('/home');
 
