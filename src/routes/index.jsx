@@ -4,23 +4,19 @@ import Home from '../pages/Home';
 import Register from '../pages/Register';
 import ViewMore from '../pages/ViewMore';
 import Edit from '../pages/Edit';
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
-
-const Private = ({ Item }) => {
-    const signed = true;
-    return signed > 0 ? <Item /> : <SignIn />;
-};
+import SignIn from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
+import { RequireAuth } from '../contexts/Auth/RequireAuth';
 
 export const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<SignIn />} exact/>
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/home" element={<Private Item={Home} />} />
-            <Route path="/form" element={<Register />} />
-            <Route path="/view-more/:id" element={<ViewMore />} />
-            <Route path="/form/edit/:id" element={<Edit />} />
+            <Route path="/home" element={<RequireAuth><Home /></RequireAuth>} />
+            <Route path="/form" element={<RequireAuth><Register /></RequireAuth>} />
+            <Route path="/view-more/:id" element={<RequireAuth><ViewMore /></RequireAuth>} />
+            <Route path="/form/edit/:id" element={<RequireAuth><Edit /></RequireAuth>} />
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
