@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Main = styled.main`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,14 +18,14 @@ export const Content = styled.div`
     margin-bottom: 100px;
 `;
 
-export const Form = styled.form`
-`;
-
 export const H1 = styled.h1`
     margin-bottom: 40px;
     font-family: monospace;
     font-size: 2rem;
     color: #29EBAA;
+    `;
+
+export const Form = styled.form`
 `;
 
 export const ContentFields = styled.div`

@@ -35,7 +35,7 @@ const SignUp = () => {
     <>
       <Header page={'signUp'} />
 
-      <S.Container>
+      <S.Main>
         <S.Content>
           <S.H1>Cadastro</S.H1>
           <S.Form onSubmit={handleSubmit(userRegister)}>
@@ -78,7 +78,7 @@ const SignUp = () => {
             <Button Text="Registrar-se" Type="submit" />
           </S.Form>
         </S.Content>
-      </S.Container>
+      </S.Main>
     </>
   );
 }
