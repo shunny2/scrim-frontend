@@ -9,8 +9,12 @@ export const useApi = () => ({
         });
         return response.data;
     },
-    signIn: async (email, password) => {
-        const response = await api.post('login', { email, password });
+    refreshToken: async (token) => {
+        const response = await api.post('refresh', {}, {
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+        });
         return response.data;
     },
     logout: async (token) => {
@@ -21,4 +25,8 @@ export const useApi = () => ({
         });
         return response.data;
     },
+    signIn: async (email, password) => {
+        const response = await api.post('login', { email, password });
+        return response.data;
+    }
 });
