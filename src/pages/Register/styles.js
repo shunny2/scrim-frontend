@@ -14,8 +14,6 @@ export const Content = styled.div`
     width: 500px;
     height: 600px;
     border-radius: 5px;
-    margin-top: 100px;
-    margin-bottom: 100px;
 `;
 
 export const H1 = styled.h1`

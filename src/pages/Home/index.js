@@ -10,6 +10,7 @@ import Loading from '../../assets/loading.gif';
 
 import api from '../../services/api';
 import { useQuery, useQueryClient } from 'react-query';
+import Footer from '../../components/Footer';
 
 function Home() {
   const { data: games, isFetching } = useQuery('games', async () => {
@@ -57,19 +58,21 @@ function Home() {
                 <S.Description>{formatDescription(game.description)}</S.Description>
 
                 <S.Buttons>
-                    <Link to={{ pathname: `/view-more/${game.id}` }}>
-                      <S.Button name="btn-view">Vizualizar</S.Button>
-                    </Link>
-                    <Link to={{ pathname: `/form/edit/${game.id}` }}>
-                      <S.Button name="btn-edit">Editar</S.Button>
-                    </Link>
-                    <S.Button name="btn-delete" onClick={() => deleteGame(game.id)}>Excluir</S.Button>
+                  <Link to={{ pathname: `/view-more/${game.id}` }}>
+                    <S.Button name="btn-view">Vizualizar</S.Button>
+                  </Link>
+                  <Link to={{ pathname: `/form/edit/${game.id}` }}>
+                    <S.Button name="btn-edit">Editar</S.Button>
+                  </Link>
+                  <S.Button name="btn-delete" onClick={() => deleteGame(game.id)}>Excluir</S.Button>
                 </S.Buttons>
               </S.Card>
             )
           })}
         </S.Content>
       </S.Main>
+
+      <Footer />
     </>
   )
 }

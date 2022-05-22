@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import * as S from './styles';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Input from '../../components/Input';
 import TextArea from '../../components/TextArea';
 import Button from '../../components/Button';
@@ -71,6 +72,8 @@ function Register() {
                     </S.Form>
                 </S.Content>
             </S.Main>
+
+            <Footer />
         </>
     )
 }

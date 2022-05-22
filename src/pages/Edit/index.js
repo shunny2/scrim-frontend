@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import * as S from './styles';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Input from '../../components/Input';
 import TextArea from '../../components/TextArea';
 import Button from '../../components/Button';
@@ -62,7 +63,7 @@ function Edit() {
                             <S.labelError>{errors.name?.message}</S.labelError>
                         </S.ContentFields>
                         <S.ContentFields>
-                            <Input 
+                            <Input
                                 type="number"
                                 name="cost"
                                 min="0" max="100000000000" step=".001"
@@ -85,6 +86,8 @@ function Edit() {
                     </S.Form>
                 </S.Content>
             </S.Main>
+
+            <Footer />
         </>
     )
 }

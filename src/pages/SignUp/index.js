@@ -10,6 +10,7 @@ import Button from '../../components/Button';
 import * as S from './styles';
 
 import api from '../../services/api';
+import Footer from '../../components/Footer';
 
 const SignUp = () => {
 
@@ -79,6 +80,8 @@ const SignUp = () => {
           </S.Form>
         </S.Content>
       </S.Main>
+
+      <Footer />
     </>
   );
 }

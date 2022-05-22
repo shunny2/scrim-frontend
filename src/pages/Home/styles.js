@@ -8,7 +8,7 @@ export const Main = styled.main`
 `;
 
 export const Content = styled.div`
-    margin-top: 1rem;
+    
 `;
 
 export const Card = styled.div`

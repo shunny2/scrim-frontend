@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import * as S from './styles';
 import More from '../../assets/more.png';
@@ -43,6 +44,8 @@ function ViewMore() {
           </S.Card>
         </S.Content>
       </S.Main>
+
+      <Footer />
     </>
   )
 }
