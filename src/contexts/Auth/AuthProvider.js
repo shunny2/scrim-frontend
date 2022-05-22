@@ -10,7 +10,7 @@ export const AuthProvider = (props) => {
     useEffect(() => {
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
-            console.log(storageData);
+
             if (storageData) {
                 const { user } = await api.validateToken(storageData);
 
