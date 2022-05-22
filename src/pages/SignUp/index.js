@@ -24,7 +24,7 @@ const SignUp = () => {
     try {
       const response = await api.post('register', data);
 
-      navigate('/home');
+      navigate('/');
 
       return response.data;
     } catch (error) {
