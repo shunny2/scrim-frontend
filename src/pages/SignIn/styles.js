@@ -52,3 +52,15 @@ export const Strong = styled.strong`
         color: #29EBAA;
     }
 `;
+
+export const Loading = styled.div`
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Image = styled.img`
+    width: 30px;
+    margin-left: 40px;
+`;
