@@ -17,7 +17,7 @@ function HeaderMain() {
         <S.Header>
             <S.Container>
                 <S.Logo>
-                    <h1>Scrim</h1>
+                    <S.H1>Scrim</S.H1>
                 </S.Logo>
 
                 <S.Buttons>

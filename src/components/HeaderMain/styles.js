@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
+    margin-bottom: 4rem;
     border: 3px solid #29EBAA;
 `;
 
@@ -14,14 +15,20 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled.div`
+    margin: 10px;
     font-family: monospace;
     font-weight: 700;
     color: #29EBAA;
     cursor: pointer;
 `;
 
+export const H1 = styled.h1`
+    font-size: 28px;
+`;
+
 export const Buttons = styled.div`
     align-items: center;
+    margin: 10px;
 `;
 
 export const Button = styled.button`
