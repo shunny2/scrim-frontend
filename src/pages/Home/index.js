@@ -43,7 +43,7 @@ function Home() {
               <S.Image src={Loading} style={{ width: '7%' }} alt="loading" />
             </S.Loading>
           }
-
+          
           {games?.map((game, key) => {
             return (
               <S.Card key={key}>

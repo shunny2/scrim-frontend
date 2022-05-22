@@ -21,7 +21,7 @@ export const Card = styled.div`
 `;
 
 export const Loading = styled.div`
-    height: 100vh;
+    height: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
