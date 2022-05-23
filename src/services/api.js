@@ -13,7 +13,7 @@ instance.interceptors.request.use(async (config) => {
         }
         return config;
     } catch (error) {
-        console.log('Entrou error: ', error);
+        console.log('Error: ', error);
     }
 });
 
