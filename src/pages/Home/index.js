@@ -44,7 +44,7 @@ function Home() {
             </S.Loading>
           }
           
-          {games?.map((game, key) => {
+          {!isFetching && games?.map((game, key) => {
             return (
               <S.Card key={key}>
                 <S.Header>

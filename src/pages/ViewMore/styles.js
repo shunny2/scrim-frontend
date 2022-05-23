@@ -12,12 +12,11 @@ export const Content = styled.div`
 `;
 
 export const Card = styled.div`
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 30px 40px;
     width: 600px;
     border: 3px solid #3DECB1;
     border-radius: 7px;
-    margin-top: 40px;
 `;
 
 export const Image = styled.img`
