@@ -52,7 +52,7 @@ const SignIn = () => {
     }
     const token = localStorage.getItem('authToken');
     signInWithToken(token);
-  }, []);
+  }, [navigate]);
 
   return (
     <S.Container>
