@@ -4,7 +4,7 @@ export const Footer = styled.footer`
     border: 3px solid #29EBAA;
     margin-top: 4rem;
     width: 100%;
-    position: absolute;
+    position: inherit;
     bottom: 0;
     left: 0;
 `;
