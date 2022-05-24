@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import px2vw from "../../utils/px2vw";
 
 export const Button = styled.button`
     display: block;
@@ -18,5 +19,12 @@ export const Button = styled.button`
     &:hover {
         background-color: #29EBAA;
         color: white;
+    }
+
+    @media (max-width: 375px) {
+        font-size: 1.7rem;
+        margin: 30px auto;
+        width: ${px2vw(80,200)};
+        height: ${px2vw(5,50)};
     }
 `;

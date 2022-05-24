@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import px2vw from '../../utils/px2vw';
 
 export const Footer = styled.footer`
     border: 3px solid #29EBAA;
@@ -16,6 +17,11 @@ export const Container = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     height: 100px;
+
+    @media (max-width: 375px) {
+        width: ${px2vw(350,375)};
+        height: ${px2vw(50,375)};
+    }
 `;
 
 export const Logo = styled.div`
@@ -28,4 +34,8 @@ export const Logo = styled.div`
 
 export const H1 = styled.h1`
     font-size: 28px;
+
+    @media (max-width: 375px) {
+        font-size: 3rem;
+    }
 `;

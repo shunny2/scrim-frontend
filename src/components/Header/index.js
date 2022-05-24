@@ -12,7 +12,7 @@ function Header(props) {
         <S.Header>
             <S.Container>
                 <Link to={path}>
-                    <S.Image src={Back} alt='button back' style={{ width: 50 }} />
+                    <S.Image src={Back} alt='button back' />
                 </Link>
             </S.Container>
         </S.Header>

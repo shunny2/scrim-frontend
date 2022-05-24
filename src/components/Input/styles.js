@@ -11,4 +11,9 @@ export const Input = styled.input`
     font-family: Poppins;
     border-color: #29EBAA;
     height: 45px;
+
+    @media (max-width: 375px) {
+        font-size: 2rem;
+        height: 30px;
+    }
 `;
