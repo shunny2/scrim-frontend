@@ -12,7 +12,7 @@ import Button from '../../components/Button';
 
 import api from '../../services/api';
 
-function Register() {
+const Register = () => {
     let navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm({

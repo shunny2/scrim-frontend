@@ -6,15 +6,18 @@ import Footer from '../../components/Footer';
 
 import * as S from './styles';
 import More from '../../assets/more.png';
+import Loading from '../../assets/loading.gif';
 
 import api from '../../services/api';
 
-function ViewMore() {
+const ViewMore = () => {
   const [game, setGame] = useState({});
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
 
+    setLoading(true);
     api.get(`game/${id}`)
       .then((response) => {
         setGame(response.data);
@@ -22,6 +25,9 @@ function ViewMore() {
       .catch((error) => {
         console.log(error.message);
       })
+      .finally(() => {
+        setLoading(false);
+      });
 
   }, [id]);
 
@@ -30,19 +36,27 @@ function ViewMore() {
       <Header />
 
       <S.Main>
-        <S.Content>
-          <S.Card>
-            <S.Header>
-              <S.H2>{game.name}</S.H2>
-              <S.H2>{verifyCost(game.cost)}</S.H2>
-              <S.Image src={More} alt='more' />
-            </S.Header>
+        {loading &&
+          <S.Loading>
+            <S.Image src={Loading} style={{ width: '7%' }} alt="loading" />
+          </S.Loading>
+        }
 
-            <S.Line></S.Line>
+        {!loading &&
+          <S.Content>
+            <S.Card>
+              <S.Header>
+                <S.H2>{game.name}</S.H2>
+                <S.H2>{verifyCost(game.cost)}</S.H2>
+                <S.Image src={More} alt='more' />
+              </S.Header>
 
-            <S.Description>{game.description}</S.Description>
-          </S.Card>
-        </S.Content>
+              <S.Line></S.Line>
+
+              <S.Description>{game.description}</S.Description>
+            </S.Card>
+          </S.Content>
+        }
       </S.Main>
 
       <Footer />

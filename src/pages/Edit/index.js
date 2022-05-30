@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,12 +9,14 @@ import Footer from '../../components/Footer';
 import Input from '../../components/Input';
 import TextArea from '../../components/TextArea';
 import Button from '../../components/Button';
+import Loading from '../../assets/loading.gif';
 
 import api from '../../services/api';
 
-function Edit() {
+const Edit = () => {
     let navigate = useNavigate();
 
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -23,6 +25,7 @@ function Edit() {
 
     useEffect(() => {
 
+        setLoading(true);
         api.get(`game/${id}/edit`)
             .then((response) => {
                 reset(response.data);
@@ -30,6 +33,9 @@ function Edit() {
             .catch((error) => {
                 console.log(error.message);
             })
+            .finally(() => {
+                setLoading(false);
+            });
 
     }, [id, reset]);
 
@@ -50,41 +56,49 @@ function Edit() {
             <Header />
 
             <S.Main>
-                <S.Content>
-                    <S.H1>Scrim Formulário de Edição</S.H1>
-                    <S.Form onSubmit={handleSubmit(update)}>
-                        <S.ContentFields>
-                            <Input
-                                type="text"
-                                name="name"
-                                placeholder="Nome"
-                                ref={register('name')}
-                            />
-                            <S.labelError>{errors.name?.message}</S.labelError>
-                        </S.ContentFields>
-                        <S.ContentFields>
-                            <Input
-                                type="number"
-                                name="cost"
-                                min="0" max="100000000000" step=".001"
-                                placeholder="Preço"
-                                ref={register('cost')}
-                            />
-                            <S.labelError>{errors.cost?.message}</S.labelError>
-                        </S.ContentFields>
-                        <S.ContentFields>
-                            <TextArea
-                                type="text"
-                                name="description"
-                                rows={100}
-                                placeholder="Descrição"
-                                ref={register('description')}
-                            ></TextArea>
-                            <S.labelError>{errors.description?.message}</S.labelError>
-                        </S.ContentFields>
-                        <Button Text="Editar" Type="submit" />
-                    </S.Form>
-                </S.Content>
+                {loading &&
+                    <S.Loading>
+                        <S.Image src={Loading} style={{ width: '50%' }} alt="loading" />
+                    </S.Loading>
+                }
+
+                {!loading &&
+                    <S.Content>
+                        <S.H1>Scrim Formulário de Edição</S.H1>
+                        <S.Form onSubmit={handleSubmit(update)}>
+                            <S.ContentFields>
+                                <Input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Nome"
+                                    ref={register('name')}
+                                />
+                                <S.labelError>{errors.name?.message}</S.labelError>
+                            </S.ContentFields>
+                            <S.ContentFields>
+                                <Input
+                                    type="number"
+                                    name="cost"
+                                    min="0" max="100000000000" step=".001"
+                                    placeholder="Preço"
+                                    ref={register('cost')}
+                                />
+                                <S.labelError>{errors.cost?.message}</S.labelError>
+                            </S.ContentFields>
+                            <S.ContentFields>
+                                <TextArea
+                                    type="text"
+                                    name="description"
+                                    rows={100}
+                                    placeholder="Descrição"
+                                    ref={register('description')}
+                                ></TextArea>
+                                <S.labelError>{errors.description?.message}</S.labelError>
+                            </S.ContentFields>
+                            <Button Text="Editar" Type="submit" />
+                        </S.Form>
+                    </S.Content>
+                }
             </S.Main>
 
             <Footer />

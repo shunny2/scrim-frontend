@@ -19,6 +19,13 @@ export const Card = styled.div`
     border-radius: 7px;
 `;
 
+export const Loading = styled.div`
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 export const Image = styled.img`
     width: 30px;
     margin-left: 40px;

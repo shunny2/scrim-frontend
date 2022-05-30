@@ -16,6 +16,19 @@ export const Content = styled.div`
     border-radius: 5px;
 `;
 
+export const Loading = styled.div`
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Image = styled.img`
+    width: 30px;
+    margin-left: 40px;
+    cursor: pointer;
+`;
+
 export const H1 = styled.h1`
     margin-bottom: 40px;
     font-family: monospace;

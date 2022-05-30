@@ -12,7 +12,7 @@ import api from '../../services/api';
 import { useQuery, useQueryClient } from 'react-query';
 import Footer from '../../components/Footer';
 
-function Home() {
+const Home = () => {
   const { data: games, isFetching } = useQuery('games', async () => {
     const response = await api.get('game');
 
