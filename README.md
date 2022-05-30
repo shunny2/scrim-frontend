@@ -6,7 +6,9 @@ For the development of Scrim, the most modern libraries that react can offer wer
 
 > Status: Developing
 
-In the project directory, you can run:
+A production version is available at: [http://scrim-games-app.herokuapp.com](http://scrim-games-app.herokuapp.com)
+
+Or in the project directory, you can run:
 
 ### `npm start`
 
