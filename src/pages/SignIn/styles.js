@@ -5,6 +5,10 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media (max-height: 1080px) {
+        height: 960px;
+    }
 `;
 
 export const Content = styled.div`
@@ -14,8 +18,6 @@ export const Content = styled.div`
     width: 500px;
     height: 600px;
     border-radius: 5px;
-    margin-top: 100px;
-    margin-bottom: 100px;
 `;
 
 export const Form = styled.form`
