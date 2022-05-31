@@ -5,7 +5,6 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import * as S from './styles';
-import More from '../../assets/more.png';
 import Loading from '../../assets/loading.gif';
 
 import api from '../../services/api';
@@ -48,7 +47,6 @@ const ViewMore = () => {
               <S.Header>
                 <S.H2>{game.name}</S.H2>
                 <S.H2>{verifyCost(game.cost)}</S.H2>
-                <S.Image src={More} alt='more' />
               </S.Header>
 
               <S.Line></S.Line>
