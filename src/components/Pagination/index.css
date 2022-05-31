@@ -1,0 +1,42 @@
+.navigationButtons {
+    width: 100%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding-top: 40px;
+    color: #3DECB1;
+}
+
+.navigationButtons :hover {
+    color: white;
+}
+
+.navigationButtons a {
+    padding: 10px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 3px solid #3DECB1;
+    color: #3DECB1;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navigationButtons a:hover {
+    color: white;
+    background-color: #3DECB1;
+}
+
+.navigationActive a {
+    color: white;
+}
+
+.navigationDisabled a {
+    color: #3DECB1;
+}
+
+.pageActive a {
+    background-color: #c3f8e6;
+}
