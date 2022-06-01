@@ -15,7 +15,14 @@ export const Loading = styled.div`
 `;
 
 export const Image = styled.img`
-    width: 30px;
+    width: 7%;
     margin-left: 40px;
-    cursor: pointer;
+
+    @media (max-height: 851px) {
+        width: 20%;
+    }
+
+    @media (max-height: 653px) {
+        width: 30%;
+    }
 `;

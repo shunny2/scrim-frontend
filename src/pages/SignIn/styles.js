@@ -97,6 +97,6 @@ export const Loading = styled.div`
 `;
 
 export const Image = styled.img`
-    width: 30px;
+    width: 30%;
     margin-left: 40px;
 `;

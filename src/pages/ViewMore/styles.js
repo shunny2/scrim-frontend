@@ -17,6 +17,14 @@ export const Card = styled.div`
     width: 600px;
     border: 3px solid #3DECB1;
     border-radius: 7px;
+
+    @media (max-height: 851px) {
+        width: 325px;
+    }
+
+    @media (max-height: 653px) {
+        width: 250px;
+    }
 `;
 
 export const Loading = styled.div`
@@ -27,9 +35,16 @@ export const Loading = styled.div`
 `;
 
 export const Image = styled.img`
-    width: 30px;
+    width: 7%;
     margin-left: 40px;
-    cursor: pointer;
+
+    @media (max-height: 851px) {
+        width: 20%;
+    }
+
+    @media (max-height: 653px) {
+        width: 30%;
+    }
 `;
 
 export const Header = styled.header`
@@ -46,6 +61,16 @@ export const H2 = styled.h2`
     font-weight: 700;
     font-size: 1.7rem;
     color: #3DECB1;
+
+    @media (max-height: 851px) {
+        font-size: 1.2rem;
+        max-width: 450px;
+    }
+
+    @media (max-height: 653px) {
+        font-size: 1rem;
+        width: 350px;
+    }
 `;
 
 export const Line = styled.div`
@@ -60,4 +85,14 @@ export const Description = styled.p`
     font-family: Noto Sans;
     font-weight: 500;
     color: #3DECB1;
+
+    @media (max-height: 851px) {
+        font-size: 1rem;
+        max-width: 450px;
+    }
+
+    @media (max-height: 653px) {
+        font-size: 0.95rem;
+        width: 350px;
+    }
 `;

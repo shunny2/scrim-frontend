@@ -37,7 +37,7 @@ const Home = () => {
         {
           isFetching &&
           <S.Loading>
-            <S.Image src={Loading} style={{ width: '7%' }} alt="loading" />
+            <S.Image src={Loading} alt="loading" />
           </S.Loading>
         }
 

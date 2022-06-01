@@ -60,7 +60,7 @@ const SignIn = () => {
     <S.Container>
       {loading &&
         <S.Loading>
-          <S.Image src={Loading} style={{ width: '50%' }} alt="loading" />
+          <S.Image src={Loading} alt="loading" />
         </S.Loading>
       }
 
