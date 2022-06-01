@@ -6,12 +6,20 @@ export const Container = styled.div`
     justify-content: center;
     flex-direction: column;
 
+    @media (max-height: 1368px) {
+        height: 1368px;
+    }
+
     @media (max-height: 1080px) {
         height: 960px;
     }
 
     @media (max-height: 851px)  {
         height: 851px;
+    }
+
+    @media (max-height: 653px) {
+        height: 653px;   
     }
 `;
 
@@ -23,9 +31,14 @@ export const Content = styled.div`
     height: 600px;
     border-radius: 5px;
 
-    @media (max-height: 851px)  {
+    @media (max-height: 851px) {
         width: 380px;
         height: 570px;
+    }
+
+    @media (max-height: 653px) {
+        width: 265px;
+        height: 500px;
     }
 `;
 
@@ -37,6 +50,10 @@ export const H1 = styled.h1`
     font-family: monospace;
     font-size: 2rem;
     color: #29EBAA;
+
+    @media (max-height: 653px) {
+        font-size: 1.4rem;
+    }
 `;
 
 export const ContentFields = styled.div`
@@ -44,14 +61,22 @@ export const ContentFields = styled.div`
 `;
 
 export const LabelSignUp = styled.label`
-    font-size: 16px;
+    font-size: 1em;
     color: #29EBAA;
+
+    @media (max-height: 653px) {
+        font-size: 0.75em;   
+    }
 `;
 
 export const labelError = styled.label`
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: bold;
     color: #29EBAA;
+
+    @media (max-height: 653px) {
+        font-size: 0.7em;   
+    }
 `;
 
 export const Strong = styled.strong`
