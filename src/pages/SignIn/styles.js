@@ -9,6 +9,10 @@ export const Container = styled.div`
     @media (max-height: 1080px) {
         height: 960px;
     }
+
+    @media (max-height: 851px)  {
+        height: 851px;
+    }
 `;
 
 export const Content = styled.div`
@@ -18,6 +22,11 @@ export const Content = styled.div`
     width: 500px;
     height: 600px;
     border-radius: 5px;
+
+    @media (max-height: 851px)  {
+        width: 380px;
+        height: 570px;
+    }
 `;
 
 export const Form = styled.form`

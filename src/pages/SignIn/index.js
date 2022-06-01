@@ -17,6 +17,8 @@ const SignIn = () => {
   const auth = useContext(AuthContext);
   const api = useApi();
   
+  const token = localStorage.getItem('authToken');
+
   const [loading, setLoading] = useState(true);
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -50,9 +52,9 @@ const SignIn = () => {
           setLoading(false);
         });
     }
-    const token = localStorage.getItem('authToken');
+    
     signInWithToken(token);
-  }, [navigate]);
+  }, [navigate, token]);
 
   return (
     <S.Container>
