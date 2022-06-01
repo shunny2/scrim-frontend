@@ -19,4 +19,11 @@ export const Button = styled.button`
         background-color: #29EBAA;
         color: white;
     }
+
+    @media (max-height: 653px) {
+        margin: 35px auto;
+        font-size: 0.9rem;
+        width: 140px;
+        height: 35px;
+    }
 `;

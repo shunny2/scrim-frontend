@@ -16,6 +16,14 @@ export const Container = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     height: 100px;
+
+    @media (max-height: 851px) {
+        height: 80px;
+    }
+
+    @media (max-height: 653px) {
+        height: 60px;
+    }
 `;
 
 export const Logo = styled.div`
@@ -27,5 +35,9 @@ export const Logo = styled.div`
 `;
 
 export const H1 = styled.h1`
-    font-size: 28px;
+    font-size: 2.2em;
+
+    @media (max-height: 653px) {
+        font-size: 1.6em;
+    }
 `;

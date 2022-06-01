@@ -23,7 +23,7 @@ export const Logo = styled.div`
 `;
 
 export const H1 = styled.h1`
-    font-size: 28px;
+    font-size: 2.2em;
 `;
 
 export const Buttons = styled.div`
