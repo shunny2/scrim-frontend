@@ -7,6 +7,16 @@ export const Content = styled.div`
     margin: 1px auto;
     width: 60%;
     min-height: 60vh;
+
+    @media (max-height: 851px) {
+        min-height: 65vh;
+        width: 100%;
+    }
+
+    @media (max-height: 653px) {
+        min-height: 50vh;
+        width: 100%;
+    }
 `;
 
 export const Card = styled.div`
@@ -15,12 +25,27 @@ export const Card = styled.div`
     width: 600px;
     border: 3px solid #3DECB1;
     border-radius: 7px;
+
+    @media (max-height: 851px) {
+        width: 325px;
+    }
+
+    @media (max-height: 653px) {
+        width: 250px;
+        margin: 10px auto;
+        padding: 20px 30px;
+    }
 `;
 
 export const Image = styled.img`
     width: 30px;
     margin-left: 40px;
     cursor: pointer;
+
+    @media (max-height: 653px) {
+        width: 30px;
+        margin-left: 30px;
+    }
 `;
 
 export const Header = styled.header`
@@ -37,11 +62,25 @@ export const H2 = styled.h2`
     font-weight: 700;
     font-size: 1.7rem;
     color: #3DECB1;
+
+    @media (max-height: 851px) {
+        font-size: 0.9rem;
+        max-width: 450px;
+    }
+
+    @media (max-height: 653px) {
+        font-size: 0.8rem;
+        max-width: 350px;
+    }
 `;
 
 export const Line = styled.div`
     background-color:#3DECB1;
     height: 2px;
+
+    @media (max-height: 653px) {
+        height: 1.5px;
+    }
 `;
 
 export const Description = styled.p`
@@ -51,12 +90,30 @@ export const Description = styled.p`
     font-family: Noto Sans;
     font-weight: 500;
     color: #3DECB1;
+
+    @media (max-height: 851px) {
+        font-size: 0.8rem;
+        max-width: 450px;
+    }
+
+    @media (max-height: 653px) {
+        font-size: 0.7rem;
+        max-width: 350px;
+    }
 `;
 
 export const Buttons = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+
+    @media (max-height: 851px) {
+        margin-top: 25px;
+    }
+
+    @media (max-height: 653px) {
+        margin-top: 20px;
+    }
 `;
 
 export const Button = styled.button`
@@ -86,5 +143,19 @@ export const Button = styled.button`
                 background-color: rgb(241, 45, 45);
                 color: white;
             }`)
+    }
+
+    @media (max-height: 851px) {
+        font-size: 0.7rem;
+        width: 80px;
+        padding: 5px 10px;
+        margin: 0px 1px;
+    }
+
+    @media (max-height: 653px) {
+        font-size: 0.55rem;
+        width: 65px;
+        padding: 5px 7px;
+        margin: 0px 1px;
     }
 `;
