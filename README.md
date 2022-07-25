@@ -1,5 +1,7 @@
 # About Scrim
 
+![Captura de tela 2022-06-22 103753](https://user-images.githubusercontent.com/72872854/175042987-022f1d10-6b61-42c7-b122-4261fe972bbc.png)
+
 Scrim is a web application for registering and listing games. The application makes requests to the backend via API to perform its functions.
 
 For the development of Scrim, the most modern libraries that react can offer were used.
